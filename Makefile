@@ -9,8 +9,8 @@ ifeq ($(UNAME_S),Darwin)
 	LDFLAGS=-framework OpenCL
 	CFLAGS=-c -std=c++11 -Wall -mmmx -O2
 else
-	LDFLAGS=-s -lOpenCL -mcmodel=large
-	CFLAGS=-c -std=c++11 -Wall -mmmx -O2 -mcmodel=large 
+	LDFLAGS=-s -lOpenCL -mcmodel=large -L/usr/local/cuda/lib64
+	CFLAGS=-c -std=c++11 -Wall -mmmx -O2 -mcmodel=large -I/usr/local/cuda/include
 endif
 
 all: $(SOURCES) $(EXECUTABLE)
